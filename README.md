@@ -28,6 +28,6 @@ cd build/
 ## More
 See more about HolyC and/or HCC:
 
-[The HolyC website](holyc-lang.com)
+[The HolyC website](https://holyc-lang.com)
 
 [The HCC github page](https://github.com/Jamesbarford/holyc-lang)
