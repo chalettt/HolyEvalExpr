@@ -24,3 +24,10 @@ cd HolyEvalExpr && make
 cd build/
 ./holyEval 67+(67*67)/(6^7)
 ```
+
+## More
+See more about HolyC and/or HCC:
+
+[The HolyC website](holyc-lang.com)
+
+[The HCC github page](https://github.com/Jamesbarford/holyc-lang)
