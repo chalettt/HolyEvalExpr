@@ -1,5 +1,5 @@
 # HolyEvalExpr
-HolyEvalExpr is a simple mathematics expressions evaluator done in HolyC using hcc, it stands more as a joke than a practical project.
+HolyEvalExpr is a simple mathematical expression evaluator done in HolyC using hcc, it stands more as a joke than a practical project.
 
 Some limitations were encountered when working with hcc such as the non-handling of enums.
 
