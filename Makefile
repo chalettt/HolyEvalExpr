@@ -1,6 +1,6 @@
 CC=hcc
 
-SRC=src/main.hc
+SRC=src/main.hc $(wildcard src/*/*.hc)
 
 BUILD_DIR=build
 
@@ -10,9 +10,9 @@ TARGET=$(BUILD_DIR)/holyEval
 
 all: $(TARGET)
 
-$(TARGET):
+$(TARGET): $(SRC)
 	mkdir -p $(BUILD_DIR)
-	$(CC) -o $@ $(SRC)
+	$(CC) -o $@ $<
 
 clean:
 	$(RM) -r $(BUILD_DIR)
