@@ -7,24 +7,25 @@ extern "c" U0 exit(I64 code);
  *
  * (1) Z -> S$
  * (2) S -> PU 
- * (3) U -> +PU 
- * (4)  | ε
- * (5) P -> RV
- * (6) V -> *RV
- * (7)  | /RV
- * (8)  | ^RV
- * (9)  | ε
- * (10) R -> + R 
- * (11)  | - R 
- * (12)  | I
- * (13) I -> integer
- * (14)  | (S)
+ * (3) U -> +PU
+ * (4)  | -PU
+ * (5)  | ε
+ * (6) P -> RV
+ * (7) V -> *RV
+ * (8)  | /RV
+ * (9)  | ^RV
+ * (10) | ε
+ * (11) R -> + R 
+ * (12)  | - R 
+ * (13)  | I
+ * (14) I -> integer
+ * (15)  | (S)
  *
 */
 
 I64 Z();
 I64 S();
-I64 U();
+I64 U(I64 left);
 I64 P();
 I64 V(I64 left);
 I64 R();
@@ -64,18 +65,23 @@ F64 Z()
 
 F64 S()
 {
-  return P() + U();
+  return U(P());
 }
 
-F64 U()
+F64 U(I64 left)
 {
   token* t = peek_token();
   if (t && t->type == PLUS)
   {
     read_token();
-    return P() + U();
+    return U(left + P());
   }
-  return 0;
+  else if (t && t->type == MINUS)
+  {
+    read_token();
+    return U(left - P());
+  }
+  return left;
 }
 
 F64 P()
@@ -115,7 +121,7 @@ I64 R()
   else if (t && t->type == MINUS)
   {
     read_token();
-    return -R();
+    return -1*R();
   }
   return I();
 }
