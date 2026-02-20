@@ -23,6 +23,12 @@ U0 init_stream(U8 *s)
   input->data[input->size] = '\0';
 }
 
+U0 destroy_stream()
+{
+  Free(input->data);
+  Free(input);
+}
+
 U64 peek_char()
 {
   current_char = input->data[index];

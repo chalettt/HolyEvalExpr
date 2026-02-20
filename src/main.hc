@@ -12,6 +12,7 @@ U8 Main(U32 argc, U8 **argv)
   init_stream(expression);
 
   "%d\n", Z();
-
+  
+  destroy_stream();
   return 0;
 }
