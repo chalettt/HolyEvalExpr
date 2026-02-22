@@ -22,7 +22,7 @@ cd HolyEvalExpr && make
 ## Usage
 ```sh
 cd build/
-./holyEval 67+(67*67)/(6^7)
+./holyEval "67+(67*67)/(6^7)"
 ```
 
 ## More
